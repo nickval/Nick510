@@ -14,9 +14,9 @@ public class MainActivity extends Activity {
 
 		// Determine whether the current user is an anonymous user
 		if (ParseAnonymousUtils.isLinked(ParseUser.getCurrentUser())) {
-			// If user is anonymous, send the user to LoginSignupActivity.class
+			// If user is anonymous, send the user to LoginActivity.class
 			Intent intent = new Intent(MainActivity.this,
-					LoginSignupActivity.class);
+					LoginActivity.class);
 			startActivity(intent);
 			finish();
 		} else {
@@ -29,9 +29,9 @@ public class MainActivity extends Activity {
 				startActivity(intent);
 				finish();
 			} else {
-				// Send user to LoginSignupActivity.class
+				// Send user to LoginActivity.class
 				Intent intent = new Intent(MainActivity.this,
-						LoginSignupActivity.class);
+						LoginActivity.class);
 				startActivity(intent);
 				finish();
 			}

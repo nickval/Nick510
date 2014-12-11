@@ -5,6 +5,7 @@ import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -46,7 +47,7 @@ public class SignupActivity extends Activity {
 
 		username = (EditText) findViewById(R.id.usernameSignup);
 		userNameSurname = (EditText) findViewById(R.id.userNameSurname);
-		password = (EditText) findViewById(R.id.password);
+		password = (EditText) findViewById(R.id.passwordSign);
 		userEmail = (EditText) findViewById(R.id.userEmail);
 		phone = (EditText) findViewById(R.id.phone);
 		postaladress = (EditText) findViewById(R.id.postalAdress);
@@ -61,13 +62,18 @@ public class SignupActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				
 				usernametxt = username.getText().toString();
-//				userNameSurnametxt = userNameSurname.getText().toString();
+				userNameSurnametxt = userNameSurname.getText().toString();
 				passwordtxt = password.getText().toString();
-//				userEmailtxt = userEmail.getText().toString();
-//				phonetxt = phone.getText().toString();
-//				postaladresstxt = postaladress.getText().toString();
-//				dobtxt = dob.getText().toString();
+				userEmailtxt = userEmail.getText().toString();
+				phonetxt = phone.getText().toString();
+				postaladresstxt = postaladress.getText().toString();
+				dobtxt = dob.getText().toString();
+				
+				Log.d("username", usernametxt);				
+				Log.d("userNameSurname", userNameSurnametxt);
+				Log.d("password", passwordtxt);
 
 				if (usernametxt.equals("") || passwordtxt.equals("")) {
 
@@ -95,8 +101,10 @@ public class SignupActivity extends Activity {
 								// registration
 								Toast.makeText(
 										getApplicationContext(),
-										"Successfully Signed up, please log in.",
+										"Successfully Signed up, loggining you.",
 										Toast.LENGTH_LONG).show();
+								Intent intent = new Intent(SignupActivity.this, Welcome.class);
+								startActivity(intent);
 							} else {
 								Toast.makeText(getApplicationContext(),
 										"Sign up Error", Toast.LENGTH_LONG)
