@@ -42,7 +42,7 @@ public class Welcome extends Activity {
 			public void onClick(View arg0) {
 				// Logout current user
 				ParseUser.logOut();
-//				finish();
+				finish();
 				Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
 				startActivity(intent);
 			}

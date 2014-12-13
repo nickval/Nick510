@@ -55,8 +55,6 @@ public class SignupActivity extends Activity {
 
 		signupToParse = (Button) findViewById(R.id.signupToParse);
 
-		Log.d("Aplication from SignUp", getApplicationContext().toString());
-
 		signupToParse.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -69,15 +67,7 @@ public class SignupActivity extends Activity {
 				userEmailtxt = userEmail.getText().toString();
 				phonetxt = phone.getText().toString();
 				postaladresstxt = postaladress.getText().toString();
-				dobtxt = dob.getText().toString();
-				
-				Log.d("username", usernametxt);				
-				Log.d("userNameSurname", userNameSurnametxt);
-				Log.d("password", passwordtxt);
-				Log.d("userEmail", userEmailtxt);				
-				Log.d("phone", phonetxt);				
-				Log.d("postaladress", postaladresstxt);				
-				Log.d("dob", dobtxt);				
+				dobtxt = dob.getText().toString();			
 
 
 //				if (usernametxt.equals("") || passwordtxt.equals("")) {
@@ -114,11 +104,13 @@ public class SignupActivity extends Activity {
 										getApplicationContext(),
 										"Successfully Signed up, loggining you.",
 										Toast.LENGTH_LONG).show();
+								finish();
 								Intent intent = new Intent(getApplicationContext(), Welcome.class);
 								startActivity(intent);
+
 							} else {
 								Toast.makeText(getApplicationContext(),
-										"Sign up Error", Toast.LENGTH_LONG)
+										"Sign up Error - " + e.getMessage(), Toast.LENGTH_LONG)
 										.show();
 							}
 

@@ -72,7 +72,6 @@ public class LoginActivity extends Activity {
 		signup.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View arg0) {
-
 				Intent intentSignUp = new Intent(LoginActivity.this,
 						SignupActivity.class);
 				startActivity(intentSignUp);
