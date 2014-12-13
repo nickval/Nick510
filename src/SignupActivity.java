@@ -74,23 +74,34 @@ public class SignupActivity extends Activity {
 				Log.d("username", usernametxt);				
 				Log.d("userNameSurname", userNameSurnametxt);
 				Log.d("password", passwordtxt);
+				Log.d("userEmail", userEmailtxt);				
+				Log.d("phone", phonetxt);				
+				Log.d("postaladress", postaladresstxt);				
+				Log.d("dob", dobtxt);				
 
-				if (usernametxt.equals("") || passwordtxt.equals("")) {
 
-					// if (usernametxt.equals("") ||
-					// userNameSurnametxt.equals("")
-					// || passwordtxt.equals("") || userEmailtxt.equals("")
-					// || phonetxt.equals("") || postaladresstxt.equals("")
-					// || dobtxt.equals("")) {
-//					Toast.makeText(getApplicationContext(),
-//							"Empty Data, please reenter", Toast.LENGTH_LONG)
-//							.show();
+//				if (usernametxt.equals("") || passwordtxt.equals("")) {
+
+					 if (usernametxt.equals("") ||
+					 userNameSurnametxt.equals("")
+					 || passwordtxt.equals("") || userEmailtxt.equals("")
+					 || phonetxt.equals("") || postaladresstxt.equals("")
+					 || dobtxt.equals("")) {
+					Toast.makeText(getApplicationContext(),
+							"Empty Data, please reenter", Toast.LENGTH_LONG)
+							.show();
 				} else {
 
 					// Save new user data into Parse.com Data Storage
 					ParseUser user = new ParseUser();
 					user.setUsername(usernametxt);
 					user.setPassword(passwordtxt);
+					user.setEmail(userEmailtxt);
+					user.put("phone", phonetxt);
+					user.put("postaladress", postaladresstxt);
+					user.put("dob", dobtxt);
+					user.put("usernamesurname", userNameSurnametxt);
+					
 					user.signUpInBackground(new SignUpCallback() {
 
 						@Override
@@ -103,7 +114,7 @@ public class SignupActivity extends Activity {
 										getApplicationContext(),
 										"Successfully Signed up, loggining you.",
 										Toast.LENGTH_LONG).show();
-								Intent intent = new Intent(SignupActivity.this, Welcome.class);
+								Intent intent = new Intent(getApplicationContext(), Welcome.class);
 								startActivity(intent);
 							} else {
 								Toast.makeText(getApplicationContext(),
